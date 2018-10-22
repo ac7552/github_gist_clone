@@ -1,0 +1,17 @@
+  <%= render :partial => 'gist_banner'%>
+  <div style="width: 980px;margin-top: 5%;">
+      <div style="margin-left:25%;width:98%;">
+        <input id="gist_discription" placeholder="Gist description..."></input>
+      </div>
+      <div class="all_gist_forms">
+        <%= render :partial => 'form', :locals => {:idx => nil, :gist_file => nil}  %>
+      </div>
+      <div id="bottom_form_content">
+        <div class="submit_item" style="margin-right:78%;">
+          <button id="add_file">Add file</button>
+        </div>
+          <div class="submit_item">
+            <button id="create_public_gist" class="create_gist">Create public gist</button>
+          </div>
+      </div>
+    </div>

@@ -1,0 +1,24 @@
+<%= render :partial => 'gist_banner'%>
+<div style="width: 980px;">
+  <div style="margin-left:25%;width:98%">
+    <input id="gist_discription" placeholder="Gist description..."value="<%=((!@gist.nil?)? @gist.description : "") %>"></input>
+  </div>
+  <div class="all_gist_forms" data-gist-id="<%= @gist.id %>">
+    <% @gist.gist_files.each_with_index do |gist_file,idx|  %>
+      <%= render :partial => 'form', :locals => {:gist_file => gist_file,:idx => idx}  %>
+    <% end %>
+  </div>
+  <div id="bottom_form_content">
+    <div class="submit_item" style="margin-right:78%;">
+      <button id="add_file">Add file</button>
+    </div>
+    <div id="submit_item_div">
+      <div class="submit_item">
+        <button id="cancel_gist" data-gist-id="<%= @gist.id %>" >Cancel</button>
+      </div>
+      <div class="submit_item">
+        <button id="update_gist">Update</button>
+      </div>
+    </div>
+</div>
+</div>

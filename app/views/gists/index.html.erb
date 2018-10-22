@@ -1,0 +1,22 @@
+<%= render :partial => 'gist_banner'%>
+<div style="width: 980px;margin-left:12%">
+  <div id="bottom_form_content" style="display:flex;">
+    <div style="margin-left:75%;display:flex;margin-bottom:5%;">
+      <div >
+        <button id="new_gist">New Gist</button>
+      </div>
+      <div >
+        <div id="new_gist"></div>
+      </div>
+    </div>
+  </div>
+  <% @all_gist.each_with_index do |gist,idx| %>
+      <div style="margin-bottom: 50px;">
+        <div id="show_gist_extension_type"><div style="padding:15px;color: #0366d6;"><%= link_to (!gist.gist_files.first.nil? ? gist.gist_files.first.extension_type : ""), gist_path(gist), method: :get %></div></div>
+      <div>
+        <div class="read_only_gist_editor" data-extension-type="<%= (!gist.gist_files.first.nil? ? gist.gist_files.first.extension_type : "") %>" data-gist-file-id="<%= !gist.gist_files.first.nil? ? gist.gist_files.first.id : ""%>" data-editor-number="<%=(!idx.nil? ? idx.to_s : "0")%>" id="editor_<%=(!idx.nil? ? idx.to_s : "0")%>">
+          <textarea style="display:none;"><%= !gist.gist_files.first.nil? ? gist.gist_files.first.file_content : ""%></textarea>
+        </div>
+      </div>
+    </div>
+  <% end %>

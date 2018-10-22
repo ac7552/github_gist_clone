@@ -1,0 +1,47 @@
+<div data-editor-number="<%=(!idx.nil? ? idx.to_s : "0")%>" class="gist_content_div" style="margin-left:25%;">
+  <div style='background-color: #fafbfc;'>
+    <div id="gist_text_field_div" style="border:1px solid #d1d5da;margin-top: 20px;">
+      <div style="display:flex;margin-right:47%;">
+      <input class="gist_text_field_div_input" data-editor-number="<%=(!idx.nil? ? idx.to_s : "0")%>" value="<%=((!gist_file.nil?)? gist_file.extension_type : "") %>" placeholder="Filename including extension...">
+    </input>
+    <button class="remove_gist_file" data-editor-number="<%=(!idx.nil? ? idx.to_s : "0")%>">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+  </div>
+      <div style="display:flex">
+        <div class="gist_text_field_item">
+          <select  data-editor-number="<%=(!idx.nil? ? idx.to_s : "0")%>" id="gist_tab_size"style="
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+          ">
+            <option value="2">Spaces</option>
+            <option value="8">Tabs</option>
+          </select>
+        </div>
+        <div class="gist_text_field_item" >
+          <select  data-editor-number="<%=(!idx.nil? ? idx.to_s : "0")%>" id="gist_use_soft_tab" style="
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+          ">
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="8">8</option>
+          </select>
+        </div>
+        <div class="gist_text_field_item" >
+          <select data-editor-number="<%=(!idx.nil? ? idx.to_s : "0")%>" id="gist_wrap_mode" >
+            <option value="false">No wrap</option>
+            <option value="true">Soft wrap</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="gist_editor" data-extension-type="<%= (!gist_file.nil? ? gist_file.extension_type : "") %>" data-gist-file-id="<%= !gist_file.nil? ? gist_file.id : ""%>" data-editor-number="<%=(!idx.nil? ? idx.to_s : "0")%>" id="editor_<%=(!idx.nil? ? idx.to_s : "0")%>" style="width:365;height:200px;">
+        <textarea style="display:none;"><%= !gist_file.nil? ? gist_file.file_content : ""%></textarea>
+      </div>
+    </div>
+  </div>
+</div>
