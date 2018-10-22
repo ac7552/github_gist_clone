@@ -242,3 +242,7 @@ button.remove_gist_file:hover{
   top: 50%;
   transform: translateY(-50%);
 }
+
+.gist_editor{
+  border: 1px solid #d1d5da;
+}

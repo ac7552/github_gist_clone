@@ -35,13 +35,11 @@ class GistsController < ApplicationController
 
     #create newly linked gist_files
     GistFile.create(new_records)
-    #update gist description
-    @gist.update(description: gist_params[:description])
     #remove gist_files that have been removed on front end
     @gist.gist_files.delete(*records_to_remove)
     respond_to do |format|
       #update assoc gist files
-      if (@gist.update(gist_files_attributes: current_old_records.values))
+      if (@gist.update(description: gist_params[:description], gist_files_attributes: current_old_records.values))
         format.html  { redirect_to(@gist,
                       :notice => 'Gist was successfully created.') }
         format.json  { render :json => @gist,

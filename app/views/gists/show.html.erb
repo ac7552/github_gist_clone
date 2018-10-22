@@ -1,7 +1,7 @@
-    <div id="display_current_gist">
-    <div id="bottom_form_content" style="display:flex;">
-      <div style="margin-left:30%;"> <%= link_to 'All Gists', gists_path, method: :get %> </div>
-      <div style="margin-left:25%;display:flex;">
+  <div id="outter_banner_div">
+    <div id="inner_banner_div" style="display:flex;">
+      <div style="margin-left:25%;"> <%= link_to 'All Gists', gists_path, method: :get %> </div>
+      <div style="margin-left:35%;display:flex;">
         <%= button_to  edit_gist_path(@gist), :method => :get, class: "edit_gist" do %>
         <i class="fa fa-pencil" aria-hidden="true"></i> Edit
         <% end %>
@@ -16,9 +16,9 @@
   <div style="margin-bottom: 50px;">
     <div id="show_gist_extension_type"><div style="padding:15px;color: #0366d6;"><%= (!gist_file.nil? ? gist_file.extension_type : "") %></div></div>
     <div>
-          <div class="read_only_gist_editor" data-extension-type="<%= (!gist_file.nil? ? gist_file.extension_type : "") %>" data-gist-file-id="<%= !gist_file.nil? ? gist_file.id : ""%>" data-editor-number="<%=(!idx.nil? ? idx.to_s : "0")%>" id="editor_<%=(!idx.nil? ? idx.to_s : "0")%>" >
-            <textarea style="display:none;"><%= !gist_file.nil? ? gist_file.file_content : ""%></textarea>
-          </div>
+      <div class="read_only_gist_editor" data-extension-type="<%= (!gist_file.nil? ? gist_file.extension_type : "") %>" data-gist-file-id="<%= !gist_file.nil? ? gist_file.id : ""%>" data-editor-number="<%=(!idx.nil? ? idx.to_s : "0")%>" id="editor_<%=(!idx.nil? ? idx.to_s : "0")%>" >
+        <textarea style="display:none;"><%= !gist_file.nil? ? gist_file.file_content : ""%></textarea>
+      </div>
     </div>
   </div>
   <% end %>

@@ -1,6 +1,5 @@
 
-
-document.addEventListener("turbolinks:load", function(event) {
+document.addEventListener('turbolinks:load', function(event) {
   var numberEditor = 1;
   var editor;
   //language for syntax highlighting: ace will use this
@@ -9,25 +8,25 @@ document.addEventListener("turbolinks:load", function(event) {
     py: 'python',
     rb: 'ruby',
     html: 'html',
-    css: 'css'
+    css: 'css',
+    md: 'markdown'
   }
-
   //grab all readonly ace editors and fill content with options
   all_read_only_gist_editors = $('.read_only_gist_editor')
   for(var i = 0; i < all_read_only_gist_editors.length; i++){
-      read_editor = all_read_only_gist_editors[i]
-      editor_number = $(read_editor).data('editor-number')
-      extension_elements = $(read_editor).data('extension-type').split(".")
-      content = $(read_editor).find('textarea').val()
-      extension_type = extension_elements[extension_elements.length - 1]
-      editor = ace.edit("editor_"+editor_number);
-      editor.session.setMode("ace/mode/"+languageMap[extension_type]);
-      editor.setValue(content, -1)
-      editor.setOptions({
-        readOnly: true,
-        highlightActiveLine: false,
-        highlightGutterLine: false
-      })
+    read_editor = all_read_only_gist_editors[i]
+    editor_number = $(read_editor).data('editor-number')
+    extension_elements = $(read_editor).data('extension-type').split(".")
+    content = $(read_editor).find('textarea').val()
+    extension_type = extension_elements[extension_elements.length - 1]
+    editor = ace.edit("editor_"+editor_number);
+    editor.session.setMode("ace/mode/"+languageMap[extension_type]);
+    editor.setValue(content, -1)
+    editor.setOptions({
+      readOnly: true,
+      highlightActiveLine: false,
+      highlightGutterLine: false
+    })
       editor.renderer.$cursorLayer.element.style.opacity=0
   }
 
@@ -149,18 +148,18 @@ document.addEventListener("turbolinks:load", function(event) {
 
   //add new for gist on click
   $('#add_file').click(function(){
-    last_editor = ($('.gist_editor')[$('.gist_editor').length-1])
-    numberEditor += $(last_editor).data('editor-number')
+    numberEditor += $('.all_gist_forms').children().length
     $('.remove_gist_file').css('visibility', 'visible')
-    $button = $('.all_gist_forms').children(":first").clone()
+    $button = $('.gist_content_div').first().clone()
+    $button.find('.gist_content_div').attr('data-editor-number', numberEditor)
     $button.attr('data-editor-number', numberEditor)
     $button.find('.gist_editor').empty()
-    $button.find('.remove_gist_file').data('editor-number', numberEditor)
+    $button.find('.remove_gist_file').attr('data-editor-number', numberEditor)
     $button.find('.gist_editor').attr('id', 'editor_'+numberEditor)
-    $button.find('.gist_editor').data('gist-file-id', '')
+    $button.find('.gist_editor').attr('data-gist-file-id', '')
     $button.find('.gist_text_field_div_input').val("")
-    $button.find('.gist_text_field_div_input').data('editor-number', numberEditor);
-    $button.find('.gist_text_field_item select').attr('editor-number', numberEditor)
+    $button.find('.gist_text_field_div_input').attr('data-editor-number', numberEditor);
+    $button.find('.gist_text_field_item select').attr('data-editor-number', numberEditor)
     $('.all_gist_forms').prepend($button);
     all_gist_content_divs = $('.gist_content_div')
     for (var i = 0; i < all_gist_content_divs.length; i++) {
@@ -181,8 +180,9 @@ document.addEventListener("turbolinks:load", function(event) {
       editor_number = $(file_divs[i]).data('editor-number')
       editor = ace.edit("editor_"+editor_number)
       editor_content = editor.getValue()
+      extension_type = $(file_divs[i]).find('.gist_text_field_div_input').last().val()
+      gist_files_attributes[i] = {file_content: editor_content, extension_type: extension_type}
       id = $('.gist_content_div[data-editor-number="'+editor_number+'"]').find('.gist_editor').data('gist-file-id')
-      extension_type = $(file_divs[i]).find('#gist_text_field_div input').val()
       gist_files_attributes[i] = {file_content: editor_content, extension_type: extension_type, id: id}
     }
     file = {}
@@ -213,8 +213,7 @@ document.addEventListener("turbolinks:load", function(event) {
       editor_number = $(file_divs[i]).data('editor-number')
       editor = ace.edit("editor_"+editor_number)
       editor_content = editor.getValue()
-      extension_type = $(file_divs[i]).find('#gist_text_field_div input').val()
-      file = file_divs[i]
+      extension_type = $(file_divs[i]).find('.gist_text_field_div_input').last().val()
       gist_files_attributes[i] = {file_content: editor_content, extension_type: extension_type}
     }
     file = {}

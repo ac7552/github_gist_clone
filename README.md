@@ -32,7 +32,6 @@ This is a clone of Github Gist that runs on rails, and utilizes the ACE javascri
 ### Prerequisites
 Docker
 
-
 ##Code Snippet:
   - In the gist.js file there is a language-map you can add to, so that you can deliminate additional languages.
 ````Javascript
