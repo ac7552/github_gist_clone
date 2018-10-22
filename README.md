@@ -1,6 +1,6 @@
 # Github Gist Clone
 
-This is a clone of Github Gist that runs on rails, and utilizes the Ace javascript library for syntax highlighting.
+This is a clone of Github Gist that runs on rails, and utilizes the ACE javascript library for syntax highlighting.
 
 ## Getting Started
 
@@ -8,15 +8,18 @@ This is a clone of Github Gist that runs on rails, and utilizes the Ace javascri
 
         On mac go to: 'https://docs.docker.com/docker-for-mac/install/'
 
-2. Clone this repo:
+2. Clone the below repo:
 
         git clone https://github.com/ac7552/github_gist_clone.git
 
-3. At the command prompt, while in the folder setup the docker containers with the following command:
+3. In the cloned directory create your own .env with a password like so:
+        MYAPP_DATABASE_PASSWORD="example"
 
+4. At the command prompt, while in the newly cloned directory, setup the docker containers with the following command:
+        $ docker-compose build
         $ docker-compose up
 
-3. Next, migrate the rails db with the following commands
+5. Next, if need be, migrate the rails db with the following commands
 
         $ docker-compose run website rake db:migrate
 
@@ -30,7 +33,7 @@ This is a clone of Github Gist that runs on rails, and utilizes the Ace javascri
 Docker
 
 
-#Code Snippet:
+##Code Snippet:
   - In the gist.js file there is a language-map you can add to, so that you can deliminate additional languages.
 ````Javascript
 

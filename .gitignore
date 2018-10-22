@@ -12,10 +12,9 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-.env
 # Ignore uploaded files in development
 /storage/*
-
+.env
 /node_modules
 /yarn-error.log
 
