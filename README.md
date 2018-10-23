@@ -48,14 +48,14 @@ const languageMap = {
 
 ### Github Gist Clone in Action
 
-#![Github Gist](https://github.com/ac7552/github_gist_clone/blob/master/gist_clone.gif)
+![Github Gist](https://github.com/ac7552/github_gist_clone/blob/master/gist_clone.gif)
 
 
 ## Built With
 
 * [Ace](https://ace.c9.io) - The javascript library used
 * [Rails](https://rubyonrails.org) - The Web Framework used
-* [Docker](https://rometools.github.io/rome/) - Containers for an easy setup
+* [Docker](https://docs.docker.com/docker-for-mac/install/) - Containers for an easy setup
 
 
 
