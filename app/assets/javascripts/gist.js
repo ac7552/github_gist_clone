@@ -60,10 +60,8 @@ document.addEventListener('turbolinks:load', function(event) {
 
    //on key up check extension_type to user for syntax highlighting
   $(document).on('keyup','.gist_text_field_div_input',function(){
-    debugger
     elements = $(this).val().split(".")
     extension = elements[elements.length - 1]
-    debugger
     if (languageMap[extension] != undefined ){
       editorNumber = $(this).data('editor-number')
       editor = ace.edit("editor_"+editorNumber);
