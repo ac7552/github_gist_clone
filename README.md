@@ -13,6 +13,7 @@ This is a clone of Github Gist that runs on rails, and utilizes the ACE javascri
         git clone https://github.com/ac7552/github_gist_clone.git
 
 3. In the cloned directory create your own .env with a password like so:
+
         MYAPP_DATABASE_PASSWORD="example"
 
 4. At the command prompt, while in the newly cloned directory, setup the docker containers with the following command:
