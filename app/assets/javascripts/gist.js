@@ -60,8 +60,10 @@ document.addEventListener('turbolinks:load', function(event) {
 
    //on key up check extension_type to user for syntax highlighting
   $(document).on('keyup','.gist_text_field_div_input',function(){
+    debugger
     elements = $(this).val().split(".")
     extension = elements[elements.length - 1]
+    debugger
     if (languageMap[extension] != undefined ){
       editorNumber = $(this).data('editor-number')
       editor = ace.edit("editor_"+editorNumber);
@@ -148,7 +150,7 @@ document.addEventListener('turbolinks:load', function(event) {
 
   //add new for gist on click
   $('#add_file').click(function(){
-    numberEditor += $('.all_gist_forms').children().length
+    numberEditor += $('.all_gist_forms').children().length * 2
     $('.remove_gist_file').css('visibility', 'visible')
     $button = $('.gist_content_div').first().clone()
     $button.find('.gist_content_div').attr('data-editor-number', numberEditor)

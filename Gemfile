@@ -21,6 +21,8 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # gem 'cocoon', '~> 1.2', '>= 1.2.9'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+gem "autoprefixer-rails"
+
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 gem 'jquery-turbolinks'
