@@ -16,6 +16,7 @@ This is a clone of Github Gist that runs on rails, and utilizes the ACE javascri
         MYAPP_DATABASE_PASSWORD="example"
 
 4. At the command prompt, while in the newly cloned directory, setup the docker containers with the following command:
+        
         $ docker-compose build
         $ docker-compose up
 
@@ -48,14 +49,14 @@ const languageMap = {
 
 ### Github Gist Clone in Action
 
-#![Github Gist](https://github.com/ac7552/github_gist_clone/blob/master/gist_clone.gif)
+![Github Gist](https://github.com/ac7552/github_gist_clone/blob/master/gist_clone.gif)
 
 
 ## Built With
 
 * [Ace](https://ace.c9.io) - The javascript library used
 * [Rails](https://rubyonrails.org) - The Web Framework used
-* [Docker](https://rometools.github.io/rome/) - Containers for an easy setup
+* [Docker](https://docs.docker.com/docker-for-mac/install/) - Containers for an easy setup
 
 
 
